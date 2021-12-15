@@ -2,20 +2,21 @@ import { Component, Input } from "@angular/core";
 
 @Component({
   selector: "event-thumbnail",
-  template: `
+  template:
+    `
     <div class="well hoverwell thumbnail">
       <h2>{{ event?.name }}</h2>
       <div>Date: {{ event?.date }}</div>
       <div>Time: {{ event?.time }}</div>
       <div>Price: {{ event?.price }}$</div>
-      <div *ngIf="event?.location">
-        <span>Location: {{ event?.location?.address }}</span>
+      <div *ngIf="event?.location" > ` + //à la place de la Structural Directive ngIf on aurait pu utiliser la propriété [hidden] :  [hidden]="!event?.location"
+    `<span>Location: {{ event?.location?.address }}</span>
         <span class="pad-left"
           >{{ event?.location?.city }}, {{ event?.location?.country }}</span
         >
       </div>
-      <div *ngIf="event?.onlineUrl">Online URL: {{ event?.onlineUrl }}</div>
-    </div>
+      <div *ngIf="event?.onlineUrl">Online URL: {{ event?.onlineUrl }}</div> ` + //à la place de la Structural Directive ngIf on aurait pu utiliser la propriété [hidden] :  [hidden]="!event?.onlineUrl"
+    `</div>
   `,
   styles: [
     `
