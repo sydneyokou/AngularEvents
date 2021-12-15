@@ -8,6 +8,7 @@ import { Component, Input } from "@angular/core";
       <h2>{{ event?.name }}</h2>
       <div>Date: {{ event?.date }}</div>
       <div [ngClass]="getStartTimeClass()" ` + // à la place de le fonction getStartTimeClass() on aurait pu utiliser : [ngClass]="{green: event?.time==='8:00 am', bold: event?.time==='8:00 am'}"
+    // NB: on aurait pu utiliser ngStyle au lieu de ngClass avec le même fonctionnement
     ` [ngSwitch]="event?.time">
         Time: {{ event?.time }}
         <span *ngSwitchCase="'8:00 am'"> (Early Start)</span>
