@@ -16,6 +16,9 @@ import { Component } from "@angular/core";
           display: none;
         }
       }
+      li > a.active {
+        color: #f97924;
+      }
     ` //the last one (@media...)make search bar disapear if the navigator window gets too small
   ]
 })
