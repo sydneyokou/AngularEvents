@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { AuthService } from "../user/auth.service";
 
 @Component({
   selector: "nav-bar",
@@ -22,4 +23,6 @@ import { Component } from "@angular/core";
     ` //the last one (@media...)make search bar disapear if the navigator window gets too small
   ]
 })
-export class NavBarComponent {}
+export class NavBarComponent {
+  constructor(private authService: AuthService) {}
+}

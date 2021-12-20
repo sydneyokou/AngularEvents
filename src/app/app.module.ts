@@ -15,6 +15,7 @@ import { NavBarComponent } from "./nav/navbar.component";
 import { ToastrService } from "./common/toastr.service";
 import { appRoutes } from "./routes";
 import { Error404Component } from "./errors/404.component";
+import { AuthService } from "./user/auth.service";
 
 export function checkDirtyState(component: CreateEventComponent) {
   if (component.isDirty) {
@@ -41,7 +42,8 @@ export function checkDirtyState(component: CreateEventComponent) {
     EventService,
     ToastrService,
     EventRouteActivator,
-    { provide: "canDeactivateCreateEvent", useValue: checkDirtyState }
+    { provide: "canDeactivateCreateEvent", useValue: checkDirtyState },
+    AuthService
   ],
   bootstrap: [EventsAppComponent]
 })
