@@ -9,7 +9,8 @@ import {
   EventService,
   EventDetailsComponent,
   CreateEventComponent,
-  EventRouteActivator
+  EventRouteActivator,
+  CreateSessionComponent
 } from "./events/index";
 import { EventsAppComponent } from "./events-app.component";
 import { NavBarComponent } from "./nav/navbar.component";
@@ -42,7 +43,8 @@ export function checkDirtyState(component: CreateEventComponent) {
     NavBarComponent,
     EventDetailsComponent,
     CreateEventComponent,
-    Error404Component
+    Error404Component,
+    CreateSessionComponent
   ],
   providers: [
     EventService,

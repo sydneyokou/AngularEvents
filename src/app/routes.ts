@@ -4,7 +4,8 @@ import {
   EventsListComponent,
   EventDetailsComponent,
   CreateEventComponent,
-  EventRouteActivator
+  EventRouteActivator,
+  CreateSessionComponent
 } from "./events/index";
 import { Error404Component } from "./errors/404.component";
 
@@ -26,5 +27,6 @@ export const appRoutes: Routes = [
   {
     path: "user",
     loadChildren: () => import("./user/user.module").then((m) => m.UserModule)
-  }
+  },
+  { path: "events/session/new", component: CreateSessionComponent }
 ];
