@@ -6,8 +6,8 @@ import { IEvent } from "./shared/index";
   template:
     `
     <div [routerLink]="['/events', event.id]" class="well hoverwell thumbnail">
-      <h2>{{ event?.name }}</h2>
-      <div>Date: {{ event?.date }}</div>
+      <h2>{{ event?.name | uppercase }}</h2>
+      <div>Date: {{ event?.date | date:'shortDate' }}</div>
       <div [ngClass]="getStartTimeClass()" ` + // à la place de le fonction getStartTimeClass() on aurait pu utiliser : [ngClass]="{green: event?.time==='8:00 am', bold: event?.time==='8:00 am'}"
     // NB: on aurait pu utiliser ngStyle au lieu de ngClass avec le même fonctionnement
     ` [ngSwitch]="event?.time">
@@ -16,7 +16,7 @@ import { IEvent } from "./shared/index";
         <span *ngSwitchCase="'10:00 am'"> (Late Start)</span>
         <span *ngSwitchDefault> (Normal Start)</span>
       </div>
-      <div>Price: {{ event?.price }}$</div>
+      <div>Price: {{ event?.price | currency:'USD' }}</div>
       <div *ngIf="event?.location" > ` + //à la place de la Structural Directive ngIf on aurait pu utiliser la propriété [hidden] :  [hidden]="!event?.location"
     `<span>Location: {{ event?.location?.address }}</span>
         <span class="pad-left"
