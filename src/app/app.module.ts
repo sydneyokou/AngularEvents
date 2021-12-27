@@ -60,6 +60,7 @@ declare let toastr: Toastr;
     EventRouteActivator,
     { provide: "canDeactivateCreateEvent", useValue: checkDirtyState },
     AuthService //the detailed equivalent syntax for this would be = {provide: AuthService, useClass: AuthService}
+    // Many services providers exist : useValue, useClass like above.. but also useExisting , useFactory...
   ],
   bootstrap: [EventsAppComponent]
 })
