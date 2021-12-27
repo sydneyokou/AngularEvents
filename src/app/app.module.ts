@@ -56,7 +56,7 @@ declare let toastr: Toastr;
   ],
   providers: [
     EventService,
-    { provide: TOASTR_TOKEN, useValue: "toastr" },
+    { provide: TOASTR_TOKEN, useValue: toastr },
     EventRouteActivator,
     { provide: "canDeactivateCreateEvent", useValue: checkDirtyState },
     AuthService

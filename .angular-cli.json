@@ -9,6 +9,7 @@
       "polyfills": "polyfills.ts",
       "prefix": "app",
       "styles": [
+        "node_modules/toastr/build/toastr.min.css",
         "node_modules/ngf-bootstrap/dist/bootstrap.min.css",
         "styles.css"
       ],
