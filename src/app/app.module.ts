@@ -59,7 +59,7 @@ declare let toastr: Toastr;
     { provide: TOASTR_TOKEN, useValue: toastr },
     EventRouteActivator,
     { provide: "canDeactivateCreateEvent", useValue: checkDirtyState },
-    AuthService
+    AuthService //the detailed equivalent syntax for this would be = {provide: AuthService, useClass: AuthService}
   ],
   bootstrap: [EventsAppComponent]
 })
