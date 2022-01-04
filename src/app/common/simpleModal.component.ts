@@ -3,11 +3,16 @@ import { JQ_TOKEN } from "./jQuery.service";
 @Component({
   selector: "simple-modal",
   template: `
-    <div id="{{ elementId }}" #modalcontainer class="modal fade" tabindex="-1">
+    <div id="{{ elementId }}" #modalcontainer class="modal" tabindex="-1">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              (click)="close()"
+            >
               <span>&times;</span>
             </button>
             <h4 class="modal-title">{{ title }}</h4>
@@ -38,7 +43,11 @@ export class SimpleModalComponent {
 
   closeModal() {
     if (this.closeOnBodyClick.toLocaleLowerCase() === "true") {
-      this.$(this.containerEl.nativeElement).modal("hide");
+      this.$(this.containerEl.nativeElement).hide();
     }
+  }
+
+  close() {
+    this.$(this.containerEl.nativeElement).hide();
   }
 }
