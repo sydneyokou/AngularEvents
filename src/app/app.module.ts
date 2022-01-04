@@ -2,6 +2,7 @@ import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { RouterModule } from "@angular/router";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 
 import {
   EventsListComponent,
@@ -13,7 +14,8 @@ import {
   CreateSessionComponent,
   SessionListComponent,
   DurationPipe,
-  UpvoteComponent
+  UpvoteComponent,
+  VoterService
 } from "./events/index";
 import { EventsAppComponent } from "./events-app.component";
 import { NavBarComponent } from "./nav/navbar.component";
@@ -44,7 +46,8 @@ let jQuery = window["$"];
     BrowserModule,
     RouterModule.forRoot(appRoutes),
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FontAwesomeModule
   ],
   declarations: [
     EventsAppComponent,
@@ -68,8 +71,9 @@ let jQuery = window["$"];
     { provide: JQ_TOKEN, useValue: jQuery },
     EventRouteActivator,
     { provide: "canDeactivateCreateEvent", useValue: checkDirtyState },
-    AuthService //the detailed equivalent syntax for this would be = {provide: AuthService, useClass: AuthService}
+    AuthService, //the detailed equivalent syntax for this would be = {provide: AuthService, useClass: AuthService}
     // Many services providers exist : useValue, useClass like above.. but also useExisting , useFactory...
+    VoterService
   ],
   bootstrap: [EventsAppComponent]
 })
